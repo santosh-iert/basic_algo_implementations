@@ -103,6 +103,22 @@ def heap_sort(arr):
         max_heapify(arr, i, 0)
 
 
+def selection_sort(array):
+    """
+    Selection Sort choosing min element first and placing that to right position
+    :param array:
+    :return:
+    """
+    if len(array) <= 1:
+        return array
+    for i in range(len(array)):
+        min_element_index = i
+        for j in range(i + 1, len(array)):
+            min_element_index = j if array[j] < array[min_element_index] else min_element_index
+        array[i], array[min_element_index] = array[min_element_index], array[i]
+    return array
+
+
 if __name__ == "__main__":
     c = 8
     d = 7
@@ -110,5 +126,5 @@ if __name__ == "__main__":
     low = 0
     high = len(l1) - 1
     print(l1)
-    heap_sort(l1)
-    print(l1)
+    # heap_sort(l1)
+    print(selection_sort(l1))
